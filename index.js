@@ -174,26 +174,6 @@ function scoreboard(getInningScoreCB, inningCB, inningNum) {
 console.log('task 5', scoreboard(getInningScore,inning,9));
 
 
-// function scoreboard(getInningScore, inningerator, numOfInnings) {
-// 	const scoreboard = [];
-// 	let homeScore = 0;
-// 	let awayScore = 0;
-
-// 	for (let i = 0; i < numOfInnings; i++) {
-// 		let currentInning = getInningScore(inningerator);
-// 		scoreboard.push(`Inning ${i + 1}: Away ${currentInning.Away} - Home ${currentInning.Home}`);
-// 		homeScore += currentInning.Home;
-// 		awayScore += currentInning.Away;
-// 	}
-
-// 	if (homeScore !== awayScore) {
-// 		scoreboard.push(`Final Score: Away ${awayScore} - Home ${homeScore}`);
-// 	} else {
-// 		scoreboard.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`);
-// 	}
-// 	return scoreboard;
-// }
-
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
