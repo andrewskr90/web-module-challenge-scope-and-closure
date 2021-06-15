@@ -43,7 +43,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
-  Closure is when a function uses a variable that was previously defined in a parent function.
+  Closure is when a function references a variable that was previously defined within its parent scope.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -52,6 +52,7 @@ function personalDice(name){
       // generate random number between 1 and 6
     const newRoll = Math.floor(Math.random() * 6);
     console.log(`${name} rolled a ${newRoll}`)
+  
   }
 }
 
@@ -65,9 +66,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-  Closure is used 
+  Closure is used when the parameter name is referencing the parent function personalDice()
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  Each time dansRoll starts the function personalDice with Dan as an input. This prompts a random number to be generated. What could change is that each time theres a chance of a different number being generated.
 c. What is the lexical scope of `newRoll`? 
+  Everything within the function personalDice.
 
 
 ### Task 3 - Stretch Goals

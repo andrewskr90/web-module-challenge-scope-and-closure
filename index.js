@@ -30,7 +30,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   1. What is the difference between counter1 and counter2?
      Counter1 is a function containing another function, whereas counter2 is one single function.
   2. Which of the two uses a closure? How can you tell?
-    Counter1 uses a closure when count++ is returned. I can well because count is referencing a variable that was declared in a parent function to the function count++ resides in.
+    Counter1 uses a closure when count++ is returned. I can tell because count is referencing a variable that was declared in a parent scope to the function count++ resides in.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
      Counter1 would be preferable if you want to keep track of multiple counts, or if you ever want to reset a count. Counter2 would be the better option if you wanted to create a universal counter that could not be reset.
@@ -153,15 +153,46 @@ Use the scoreboard function below to do the following:
 
 function scoreboard(getInningScoreCB, inningCB, inningNum) {
   const allInnings = [];
+  let homeScore = 0;
+  let awayScore = 0;
+
   for (let i = 0; i< inningNum; i++){
     let eachInning = getInningScoreCB(inningCB);
-    allInnings.push(`Inning ${i+1}: ${eachInning}`);
+    allInnings.push(`Inning ${i+1}: Away ${eachInning["Away"]} - Home ${eachInning["Home"]}`);
+    homeScore+=eachInning["Home"];
+    awayScore+=eachInning["Away"];
+  }
+  if (homeScore === awayScore){
+    allInnings.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`)
+  }
+  else {
+    allInnings.push(`Final Score: Away ${awayScore} - Home ${homeScore}`);
   }
 
   return allInnings;
 }
 console.log('task 5', scoreboard(getInningScore,inning,9));
 
+
+// function scoreboard(getInningScore, inningerator, numOfInnings) {
+// 	const scoreboard = [];
+// 	let homeScore = 0;
+// 	let awayScore = 0;
+
+// 	for (let i = 0; i < numOfInnings; i++) {
+// 		let currentInning = getInningScore(inningerator);
+// 		scoreboard.push(`Inning ${i + 1}: Away ${currentInning.Away} - Home ${currentInning.Home}`);
+// 		homeScore += currentInning.Home;
+// 		awayScore += currentInning.Away;
+// 	}
+
+// 	if (homeScore !== awayScore) {
+// 		scoreboard.push(`Final Score: Away ${awayScore} - Home ${homeScore}`);
+// 	} else {
+// 		scoreboard.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`);
+// 	}
+// 	return scoreboard;
+// }
 
 
 
